@@ -1,7 +1,17 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/*.{html,js}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Poppins", "sans-serif"],
+    },
+    container: {
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

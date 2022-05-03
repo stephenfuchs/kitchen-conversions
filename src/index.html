@@ -6,12 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Webpack Template</title>
   <meta name="description" content="A light foundation for your next frontend project based on webpack.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world?
-  </h1>
+  <div class="container mx-auto px-4 bg-local bg-cover bg-center bg-no-repeat" style="background-image: url(/images/background-light.svg)">
+    <section class="flex flex-col xl:flex-row justify-start xl:justify-around h-screen items-center gap-12">
+      <div class="xl:basis-1/3 w-full md:w-3/4 lg:w-1/2 xl:w-auto mt-6 md:mb-10 xl:mb-0 xl:mt-0">
+        <img src="/public/images/logo.svg" class="mx-auto w-1/3 md:w-auto mb-4" alt="Logo">
+        <p class="text-base md:text-lg font-medium text-center text-orange-500">Spend more time cooking and less time converting your recipe with the simplest kitchen conversion tool.</p>
+        <div class="flex align-center justify-center">
+          <button class="hidden text-sm uppercase font-medium bg-orange-50 text-orange-500 border-orange-100 border-2 rounded-md mt-4 p-3" id="btnRestart">Start Over</button>
+        </div>
+      </div>
+      <div class="xl:basis-2/3">
+        <div id="selector">
+          <h2 class="text-3xl md:text-4xl font-bold text-center uppercase text-orange-500 mb-6">What do you need to convert?</h2>
+          <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+            <button id="selectVolume" class="bg-orange-100 w-full h-32 md:w-72 md:h-72 flex items-center justify-center text-2xl font-bold uppercase text-orange-500">Volume</button>
+            <div class="bg-orange-500 rounded-full h-16 w-16 md:h-24 md:w-24 absolute flex items-center justify-center">
+              <span class="text-xl font-bold text-white uppercase">or</span>
+            </div>
+            <button id="selectWeight" class="bg-orange-100 w-full h-32 md:w-72 md:h-72 flex items-center justify-center text-2xl font-bold uppercase text-orange-500">Weight</button>
+          </div>
+        </div>
+        <div class="hidden" id="volume">
+          <h2 class="text-2xl md:text-4xl font-bold text-center uppercase text-orange-500 mb-1 md:mb-2">Volume Conversion</h2>
+          <div class="flex align-center justify-center">
+            <button class="text-base md:text-lg uppercase font-medium text-orange-500 mb-8 md:mb-16" id="switchToWeight">Switch to Weight</button>
+          </div>
+          <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+            <div class="w-full md:w-1/2 md:basis-1/2">
+              <h3 class="text-base md:text-lg font-bold uppercase text-orange-500 mb-4">Convert From:</h3>
+              <div class="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <button class="btn-unit" data-from data-unit="tsp">tsp</button>
+                <button class="btn-unit" data-from data-unit="Tbs">tbsp</button>
+                <button class="btn-unit" data-from data-unit="fl-oz">fl oz</button>
+                <button class="btn-unit" data-from data-unit="cup">cup</button>
+                <button class="btn-unit" data-from data-unit="pnt">pint</button>
+                <button class="btn-unit" data-from data-unit="qt">quart</button>
+                <button class="btn-unit" data-from data-unit="gal">gal</button>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:basis-1/2">
+              <h3 class="text-base md:text-lg font-bold uppercase text-orange-500 mb-4">Convert To:</h3>
+              <div class="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <button class="btn-unit" data-to data-unit="tsp">tsp</button>
+                <button class="btn-unit" data-to data-unit="Tbs">tbsp</button>
+                <button class="btn-unit" data-to data-unit="fl-oz">fl oz</button>
+                <button class="btn-unit" data-to data-unit="cup">cup</button>
+                <button class="btn-unit" data-to data-unit="pnt">pint</button>
+                <button class="btn-unit" data-to data-unit="qt">quart</button>
+                <button class="btn-unit" data-to data-unit="gal">gal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden" id="weight">
+          <h2 class="text-2xl md:text-4xl font-bold text-center uppercase text-orange-500 mb-1 md:mb-2">Weight Conversion</h2>
+          <div class="flex align-center justify-center">
+            <button class="text-base md:text-lg uppercase font-medium text-orange-500 mb-8 md:mb-16" id="switchToVolume">Switch to Volume</button>
+          </div>
+          <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+            <div class="w-full md:w-1/2 md:basis-1/2">
+              <h3 class="text-base md:text-lg font-bold uppercase text-orange-500 mb-4">Convert From:</h3>
+              <div class="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <button class="btn-unit" data-from data-unit="oz">oz</button>
+                <button class="btn-unit" data-from data-unit="kg">kg</button>
+                <button class="btn-unit" data-from data-unit="g">g</button>
+                <button class="btn-unit" data-from data-unit="lb">lb</button>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:basis-1/2">
+              <h3 class="text-base md:text-lg font-bold uppercase text-orange-500 mb-4">Convert To:</h3>
+              <div class="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <button class="btn-unit" data-to data-unit="oz">oz</button>
+                <button class="btn-unit" data-to data-unit="kg">kg</button>
+                <button class="btn-unit" data-to data-unit="g">g</button>
+                <button class="btn-unit" data-to data-unit="lb">lb</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden flex-col md:flex-row justify-center items-center gap-6 md:gap-8" id="conversionInput">
+          <input type="text" inputmode="decimal" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" placeholder="0" class="block w-full h-20 md:h-24 border-orange-500 border-2 text-4xl font-medium focus:border-orange-500 focus:ring-0" id="input">
+          <button class="bg-orange-500 rounded-full h-16 w-16 p-2 absolute flex items-center justify-center" id="swapBtn">
+            <img src="/public/images/icon-swap.svg" class="mx-auto rotate-90 md:rotate-0" alt="swap icon">
+          </button>
+          <input type="text" inputmode="decimal" placeholder="0" disabled class="block w-full h-20 md:h-24 border-orange-500 border-2 text-4xl font-medium md:pl-7 focus:border-orange-500 focus:ring-0 placeholder:text-orange-200 disabled:text-orange-500" id="result">
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 
 </html>
