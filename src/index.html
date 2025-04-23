@@ -92,10 +92,10 @@
         </div>
         <div class="hidden flex-col md:flex-row justify-center items-center gap-6 md:gap-8" id="conversionInput">
           <input type="text" inputmode="decimal" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" placeholder="0" class="block w-full h-20 md:h-24 border-orange-500 border-2 text-4xl font-medium focus:border-orange-500 focus:ring-0" id="input">
-          <button class="bg-orange-500 rounded-full h-16 w-16 p-2 absolute flex items-center justify-center" id="swapBtn">
+          <button class="bg-orange-500 rounded-full h-16 w-16 p-2 absolute flex items-center justify-center z-50" id="swapBtn">
             <img src="/public/images/icon-swap.svg" class="mx-auto rotate-90 md:rotate-0" alt="swap icon">
           </button>
-          <input type="text" inputmode="decimal" placeholder="0" disabled class="block w-full h-20 md:h-24 border-orange-500 border-2 text-4xl font-medium md:pl-7 focus:border-orange-500 focus:ring-0 placeholder:text-orange-200 disabled:text-orange-500 z-50" id="result">
+          <input type="text" inputmode="decimal" placeholder="0" disabled class="block w-full h-20 md:h-24 border-orange-500 border-2 text-4xl font-medium md:pl-7 focus:border-orange-500 focus:ring-0 placeholder:text-orange-200 disabled:text-orange-500" id="result">
         </div>
       </div>
     </section>
